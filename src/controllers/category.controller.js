@@ -1,7 +1,7 @@
 const categoryModel = require("../models/category.model");
 
 const controller = {
-  async getAllCategory(res) {
+  async getAllCategories(res) {
     try {
       const result = await categoryModel.find();
       res.json(result);
@@ -34,10 +34,10 @@ const controller = {
   },
   async updateCategory(req, res) {
     const { id } = req.params;
-    const { name, status } = req.body;
+    const { name, state } = req.body;
     const update = {
       name,
-      status,
+      state,
     };
     try {
       const result = await categoryModel.findByIdAndUpdate(id, update, {

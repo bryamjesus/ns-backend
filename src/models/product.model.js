@@ -9,9 +9,9 @@ const productSchema = new Schema(
   {
     categoryId: { type: Schema.ObjectId, ref: "category", required: true },
     name: basicSchema,
-    imagen: defaultSchema("default.png"),
-    precio: numberBasic,
-    estado: defaultSchema(),
+    image: defaultSchema("default.png"),
+    price: numberBasic,
+    state: defaultSchema(), // A:activo | I:inactivo
   },
   {
     versionKey: false,

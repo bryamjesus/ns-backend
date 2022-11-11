@@ -8,7 +8,7 @@ router.post("/login", (req, res) => {
 });
 
 router.get("/", auth, (req, res) => {
-  controller.getAllUser(res);
+  controller.getAllUsers(res);
 });
 
 router.get("/:id", auth, (req, res) => {

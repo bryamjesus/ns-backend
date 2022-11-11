@@ -29,7 +29,7 @@ const controller = {
       res.sendStatus(500);
     }
   },
-  async getAllUser(res) {
+  async getAllUsers(res) {
     try {
       const result = await userModel.find();
       res.json(result);
