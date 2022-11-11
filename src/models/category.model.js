@@ -1,10 +1,10 @@
 const { Schema, model } = require("mongoose");
-const { defaultSchema } = require("../shared/utils/schema.utils");
+const { defaultSchema, basicSchema } = require("../shared/utils/schema.utils");
 
 const categorySchema = new Schema(
   {
-    name: defaultSchema,
-    estado: { type: String, default: "A" }, //
+    name: basicSchema,
+    estado: defaultSchema(), //
   },
   { versionKey: false }
 );
