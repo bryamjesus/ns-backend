@@ -66,7 +66,7 @@ const controller = {
   async updateUser(req, res) {
     const { id } = req.params;
     const { typeUser, allName, email, password, state } = req.body;
-    const newUser = {
+    const update = {
       typeUser,
       allName,
       email,
@@ -74,7 +74,7 @@ const controller = {
       state,
     };
     try {
-      const result = await userModel.findByIdAndUpdate(id, newUser, {
+      const result = await userModel.findByIdAndUpdate(id, update, {
         new: true,
       });
       res.json(result);

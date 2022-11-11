@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 const categorySchema = new Schema(
   {
     name: basicSchema,
-    estado: defaultSchema(), //
+    status: defaultSchema(), // A:activo | I:inactivo
   },
   { versionKey: false }
 );
