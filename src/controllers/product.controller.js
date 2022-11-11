@@ -12,14 +12,17 @@ const controller = {
     }
   },
   async createProduct(req, res) {
-    const { categoryId, name, price, image, image64 } = req.body;
+    const { category, name, description, stock, price, image, image64 } =
+      req.body;
     const product = new productModel();
-    product.categoryId = categoryId;
+    product.category = category;
     product.name = name;
+    product.description = description;
+    product.stock = stock;
     product.price = price;
     if (image) {
       const buffer = Buffer.from(image64, "base64");
-      fs.writeFileSync(`./public/${image}`, buffer);
+      fs.writeFileSync(`./public/products/${image}`, buffer);
       product.image = image;
     }
 

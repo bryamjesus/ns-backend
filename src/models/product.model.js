@@ -7,11 +7,17 @@ const {
 
 const productSchema = new Schema(
   {
-    categoryId: { type: Schema.ObjectId, ref: "category", required: true },
     name: basicSchema,
+    description: basicSchema,
+    stock: numberBasic,
     image: defaultSchema("default.png"),
     price: numberBasic,
     state: defaultSchema(), // A:activo | I:inactivo
+    category: [
+      {
+        categoryId: { type: Schema.ObjectId, ref: "category", required: true },
+      },
+    ],
   },
   {
     versionKey: false,
