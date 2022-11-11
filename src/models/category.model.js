@@ -1,5 +1,6 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
 const { defaultSchema, basicSchema } = require("../shared/utils/schema.utils");
+const Schema = mongoose.Schema
 
 const categorySchema = new Schema(
   {
@@ -9,4 +10,4 @@ const categorySchema = new Schema(
   { versionKey: false }
 );
 
-module.exports = model("category", categorySchema);
+module.exports = mongoose.model("category", categorySchema);

@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/user.route");
+const categoryRoutes = require("./routes/category.route");
 const auth = require("./middlewares/auth");
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(cors());
 app.use(express.static("public"));
 
 app.use("/api/user", userRoutes);
-// app.use(auth);
+app.use(auth);
+app.use("/api/category", categoryRoutes);
 
 app.listen(PORT, () => console.log(`🚀 API is listening on port ${PORT}`));
