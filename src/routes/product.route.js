@@ -19,4 +19,8 @@ router.put("/:id", (req, res) => {
   controller.updateProduct(req, res);
 });
 
+router.put("/all/:id", (req, res) => {
+  controller.updateAllProduct(req, res);
+});
+
 module.exports = router;

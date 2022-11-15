@@ -47,6 +47,28 @@ const controller = {
   },
   async updateProduct({ params, body }, res) {
     const { id } = params;
+    const { category, name, description, stock, price, state } = body;
+    const update = {
+      category,
+      name,
+      description,
+      stock,
+      price,
+      state,
+    };
+
+    try {
+      const result = await productModel.findByIdAndUpdate(id, update, {
+        new: true,
+      });
+      res.json(result);
+    } catch (error) {
+      console.log(error);
+      res.sendStatus(500);
+    }
+  },
+  async updateAllProduct({ params, body }, res) {
+    const { id } = params;
     const {
       category,
       name,
