@@ -16,6 +16,7 @@ const productSchema = new Schema(
     category: [
       {
         categoryId: { type: Schema.ObjectId, ref: "category", required: true },
+        categoryName: basicSchema,
       },
     ],
   },
