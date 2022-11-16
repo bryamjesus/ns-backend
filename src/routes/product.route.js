@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
-
 const controller = require("../controllers/product.controller");
+// const bodyParser = require("body-parser");
+
+// const a = bodyParser.urlencoded({
+//   extended: true,
+// });
 
 router.get("/", (req, res) => {
   controller.getAllProducts(res);
@@ -9,6 +13,10 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   controller.getOneProduct(req, res);
+});
+
+router.post("/suggestion", (req, res) => {
+  controller.getSuggestionEvent(req, res);
 });
 
 router.post("/", (req, res) => {

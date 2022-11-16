@@ -5,8 +5,8 @@ const { PATH_IMG_PRODUCT } = require("../shared/utils/const.utils");
 const controller = {
   async getAllProducts(res) {
     try {
-      const result = await productModel.find();
-      res.json(result);
+      const results = await productModel.find();
+      res.json({ results });
     } catch (error) {
       console.log(error);
       res.sendStatus(500);
@@ -44,6 +44,29 @@ const controller = {
       console.log(error);
       res.sendStatus(500);
     }
+  },
+  async getSuggestionEvent(req, res) {
+    const { categoryId, productId } = req.body;
+    const allProducts = await productModel.find();
+
+    const indexForDeletion = await allProducts.findIndex(
+      (product) => String(product._id) === productId
+    );
+
+    allProducts.splice(indexForDeletion, 1);
+
+    const results = await allProducts.map((product) => {
+      const findCategory = product.category.findIndex(
+        (cat) => String(cat.categoryId) === categoryId
+      );
+
+      
+      if (findCategory !== -1) {
+        return product;
+      }
+    });
+
+    await res.json({ results });
   },
   async updateProduct({ params, body }, res) {
     const { id } = params;
