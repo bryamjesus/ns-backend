@@ -1,9 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const userRoutes = require("./routes/user.route");
-const categoryRoutes = require("./routes/category.route");
-const productRoutes = require("./routes/product.route");
+const userRoutes = require("./routes/user.routes");
+const categoryRoutes = require("./routes/category.routes");
+const productRoutes = require("./routes/product.routes");
 const auth = require("./middlewares/auth");
 
 const app = express();
