@@ -6,7 +6,7 @@ const controller = {
       const result = await categoryModel.find();
       res.json(result);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       res.sendStatus(500);
     }
   },
@@ -16,7 +16,7 @@ const controller = {
       const result = await categoryModel.findById(id);
       res.json(result);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       res.sendStatus(500);
     }
   },
@@ -28,7 +28,7 @@ const controller = {
       const result = await category.save();
       res.json(result);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       res.sendStatus(500);
     }
   },
@@ -45,7 +45,7 @@ const controller = {
       });
       res.json(result);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       res.sendStatus(500);
     }
   },
@@ -55,7 +55,7 @@ const controller = {
       await categoryModel.findByIdAndDelete(id);
       res.sendStatus(200);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       res.sendStatus(500);
     }
   },

@@ -25,7 +25,7 @@ const controller = {
         res.status(401).send("Credenciales incorrectas");
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       res.sendStatus(500);
     }
   },
