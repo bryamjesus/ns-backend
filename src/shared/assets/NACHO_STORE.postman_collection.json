@@ -81,14 +81,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{node_base}}/api/user/636db8e1ad85c412c46ec828",
+							"raw": "{{node_base}}/api/user/636dbdc2bd1c4422acb0ce1b",
 							"host": [
 								"{{node_base}}"
 							],
 							"path": [
 								"api",
 								"user",
-								"636db8e1ad85c412c46ec828"
+								"636dbdc2bd1c4422acb0ce1b"
 							]
 						}
 					},
@@ -762,14 +762,52 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{node_base}}/api/product/6373056be8802964a8ca3ab0",
+							"raw": "{{node_base}}/api/product/637316663496de408dfa2b6b",
 							"host": [
 								"{{node_base}}"
 							],
 							"path": [
 								"api",
 								"product",
-								"6373056be8802964a8ca3ab0"
+								"637316663496de408dfa2b6b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSuggestionEvent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"63731c167ec884b474228b24\",\r\n    \"categoryId\": \"636ea6fcb8b52ff32b089eb3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{node_base}}/api/product/suggestion",
+							"host": [
+								"{{node_base}}"
+							],
+							"path": [
+								"api",
+								"product",
+								"suggestion"
 							]
 						}
 					},
