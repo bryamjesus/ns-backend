@@ -1,33 +1,29 @@
 const express = require("express");
 const router = express.Router();
 const controller = require("../controllers/product.controller");
-// const bodyParser = require("body-parser");
-
-// const a = bodyParser.urlencoded({
-//   extended: true,
-// });
+const auth = require("../middlewares/auth");
 
 router.get("/", (req, res) => {
   controller.getAllProducts(res);
 });
 
-router.get("/:id", (req, res) => {
+router.get("/:id", auth, (req, res) => {
   controller.getOneProduct(req, res);
 });
 
-router.post("/suggestion", (req, res) => {
+router.post("/suggestion", auth, (req, res) => {
   controller.getSuggestionEvent(req, res);
 });
 
-router.post("/", (req, res) => {
+router.post("/", auth, (req, res) => {
   controller.createProduct(req, res);
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", auth, (req, res) => {
   controller.updateProduct(req, res);
 });
 
-router.put("/all/:id", (req, res) => {
+router.put("/all/:id", auth, (req, res) => {
   controller.updateAllProduct(req, res);
 });
 
