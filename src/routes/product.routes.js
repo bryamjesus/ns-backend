@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
   controller.getAllProducts(res);
 });
 
-router.get("/:id", auth, (req, res) => {
+router.get("/:id", (req, res) => {
   controller.getOneProduct(req, res);
 });
 
