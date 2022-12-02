@@ -11,7 +11,7 @@ router.get("/:id", (req, res) => {
   controller.getOneProduct(req, res);
 });
 
-router.post("/suggestion", auth, (req, res) => {
+router.post("/suggestion", (req, res) => {
   controller.getSuggestionEvent(req, res);
 });
 
