@@ -1,4 +1,5 @@
 const fs = require("fs");
+const nodemailer = require("nodemailer");
 const productModel = require("../models/product.model");
 const { PATH_IMG_PRODUCT } = require("../shared/utils/const.utils");
 
@@ -21,6 +22,37 @@ const controller = {
       console.error(error);
       res.sendStatus(500);
     }
+  },
+  async paymentGateway(req, res) {
+    const transporter = nodemailer.createTransport({
+      host: "smtp.ethereal.email",
+      port: 587,
+      secure: false,
+      auth: {
+        user: 'gustave.koss@ethereal.email',
+        pass: 'JNqGUhhj946S9ZhQsx'
+      }
+    })
+
+    const mailOptions = {
+      from: 'registro@empresa.com',
+      to: 'bryamtalledog@gmail.com',
+      subject: 'Paga de productos',
+      html: `<p>Hola<p>
+             <p>Bienvenido a nuestra plataforma.
+                Para activar tu usuario, haz clic en el siguiente enlace:</p>
+             <p><a href="/usuarios/activar/">Activar cuenta</a></p>`
+    }
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        res.sendStatus(500).send(error.message)
+      }
+      else {
+        console.log("Email enviado correctamente")
+        res.sendStatus(200).jsonp(req.body)
+      }
+    })
   },
   async createProduct(req, res) {
     const { category, name, description, stock, price, image, image64 } =

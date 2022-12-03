@@ -11,6 +11,10 @@ router.get("/:id", (req, res) => {
   controller.getOneProduct(req, res);
 });
 
+router.post("/payment-gateway", (req, res) => {
+  controller.paymentGateway(req, res);
+});
+
 router.post("/suggestion", (req, res) => {
   controller.getSuggestionEvent(req, res);
 });
