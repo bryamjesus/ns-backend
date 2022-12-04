@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const userRoutes = require("./routes/user.routes");
 const categoryRoutes = require("./routes/category.routes");
 const productRoutes = require("./routes/product.routes");
+const salesRoutes = require("./routes/sale.routes");
 const auth = require("./middlewares/auth");
 
 const app = express();
@@ -22,5 +23,6 @@ app.use("/api/user", userRoutes);
 app.use("/api/product", productRoutes);
 app.use(auth);
 app.use("/api/category", categoryRoutes);
+app.use("/api/sales", salesRoutes);
 
 app.listen(PORT, () => console.log(`🚀 API is listening on port ${PORT}`));

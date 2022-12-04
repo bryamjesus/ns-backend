@@ -24,6 +24,9 @@ const controller = {
     }
   },
   async paymentGateway(req, res) {
+    const { products } = req.body
+    console.log(products)
+
     const transporter = nodemailer.createTransport({
       host: "smtp.ethereal.email",
       port: 587,
