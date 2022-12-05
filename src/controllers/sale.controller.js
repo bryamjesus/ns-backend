@@ -59,9 +59,9 @@ const controller = {
         },
       ],
       back_urls: {
-        success: "http://127.0.0.1:5173/c",
-        failure: "http://127.0.0.1:5173/c",
-        pending: "http://127.0.0.1:5173/c"
+        success: "http://127.0.0.1:5173/cart-shopping/confirmation",
+        failure: "http://127.0.0.1:5173/cart-shopping/confirmation",
+        pending: "http://127.0.0.1:5173/cart-shopping/confirmation"
       },
       auto_return: "approved",
       external_reference: result._id.toString() // Envío el id de la venta creada
