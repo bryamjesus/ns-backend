@@ -21,8 +21,8 @@ app.use(express.static("public"));
 
 app.use("/api/user", userRoutes);
 app.use("/api/product", productRoutes);
-app.use(auth);
 app.use("/api/category", categoryRoutes);
+app.use(auth);
 app.use("/api/sales", salesRoutes);
 
 app.listen(PORT, () => console.log(`🚀 API is listening on port ${PORT}`));
